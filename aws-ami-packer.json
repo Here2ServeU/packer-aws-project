@@ -1,0 +1,18 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-east-1",
+      "source_ami": "ami-0c02fb55956c7d316", 
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ami_name": "t2s-demo-ami-{{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "provisioner.sh"
+    }
+  ]
+}
