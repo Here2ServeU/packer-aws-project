@@ -101,6 +101,15 @@ Sample Packer Template (aws-ami-packer.json)
   ]
 }
 ```
+
+4. Move to the web-app-create directory: 
+- Change the variables.tf file to reflect the desired values:AMI, region, etc. 
+- Run the following commands: 
+```bash
+terraform init
+terraform plan
+terraform apply
+```
 ---
 ## Clean Up
 
@@ -112,8 +121,9 @@ aws ec2 deregister-image --image-id <ami-id>
 ```
 
 ### 2.	Terminate Any Instances:
+- Run this command where your Terraform scripts reside (web-app-create directory).
 ```bash
-aws ec2 terminate-instances --instance-ids <instance-id>
+terraform destroy
 ```
 
 This project provides a comprehensive example of using Packer to automate the creation of AMIs with customized configurations. 
