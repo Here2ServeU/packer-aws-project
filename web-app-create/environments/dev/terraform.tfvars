@@ -5,3 +5,6 @@ availability_zone = "us-east-1a"
 key_name               = "web-app-key-pair"      # Key pair name for this environment
 private_key_filename   = "web-app-key-pair.pem"  # Filename for the private key
 rsa_bits               = 2048                   # RSA bit length for private key
+ami_id           = "ami-0ba81b1086ea758e7"
+instance_type    = "t2.micro"
+instance_name    = "dev-web-app"

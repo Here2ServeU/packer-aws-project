@@ -41,11 +41,11 @@ module "security_group" {
 }
 
 module "ec2" {
-  source           = "../../modules/ec2"
-  subnet_id = data.aws_subnet.default_subnet.id 
-  ami_id           = "ami-0ba81b1086ea758e7"
-  instance_type    = "t2.micro"
+  source            = "../../modules/ec2"
+  subnet_id        = data.aws_subnet.default_subnet.id
+  ami_id           = var.ami_id  # Fetching AMI ID from terraform.tfvars
+  instance_type    = var.instance_type
   key_name         = aws_key_pair.web_app_key_pair.key_name
   security_group_id = module.security_group.security_group_id
-  instance_name    = "dev-web-app"
+  instance_name    = var.instance_name
 }
